@@ -1,0 +1,41 @@
+<%= form_for(@workout) do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+      <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>Title</p><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <p>Exercise Names</p><br>
+    <%= f.text_field :exerciseNames %>
+  </div>
+  <div class="field">
+    <p>Exercise Info</p><br>
+    <%= f.text_field :exerciseInfo %>
+  </div>
+  <div class="field">
+    <p>Notes</p><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<p>Temporary Syntax for inputting data into "Exercise Names" and "Exercise Info": </p>
+<p> "Exercise Names" - <i>Ex1, Ex2, Ex3</i></p>
+<p> "Exercise Info" - <i>WeightxRepsForEx1, WeightxRepsforEx2, WeightxRepsforEx2, etc.</i></p>
+<p>Example Syntax:</p>
+<p> "Exercise Names" - Squats, Leg Extensions</p>
+<p> "Exercise Info" - 135x10, 155x8, 175x5; 80x10, 90x8</p>
+
+<% end %>
